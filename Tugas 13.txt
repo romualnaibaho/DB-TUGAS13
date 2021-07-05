@@ -1,0 +1,20 @@
+---
+
+CREATE PROCEDURE penilaian(nim_mhs VARCHAR)
+BEGIN
+DECLARE ip_1 DECIMAL(4,2);
+SET ip_1 = (SELECT semester_1 FROM nilai_mahasiswa WHERE nim = nim_mhs);
+
+CASE @ip_1
+WHEN (ip_1 <= 1.00) 
+THEN SELECT 'Serius kuliah g sih';
+WHEN (ip_1 <= 2.00) 
+THEN SELECT 'Kebanyakan main';
+WHEN (ip_1 <= 3.00) 
+THEN SELECT 'Berusaha lagi';
+WHEN (ip_1 <= 4.00) 
+THEN SELECT 'Mantap, pertahankan!';
+ELSE
+SELECT 'NILAI tidak sesuai';
+END CASE;
+END//
