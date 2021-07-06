@@ -5,7 +5,7 @@ BEGIN
 DECLARE ip_1 DECIMAL(4,2);
 SET ip_1 = (SELECT semester_1 FROM nilai_mahasiswa WHERE nim = nim_mhs);
 
-CASE @ip_1
+CASE ip_1
 WHEN (ip_1 <= 1.00) 
 THEN SELECT 'Serius kuliah g sih';
 WHEN (ip_1 <= 2.00) 
